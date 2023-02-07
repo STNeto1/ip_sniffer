@@ -1,9 +1,7 @@
 use std::{
     io::{self, Write},
     net::IpAddr,
-    str::FromStr,
     sync::mpsc::{channel, Sender},
-    thread,
 };
 
 use bpaf::Bpaf;
@@ -40,6 +38,8 @@ async fn main() {
     drop(tx);
     let mut out: Vec<u16> = rx.into_iter().collect();
     out.sort();
+
+    println!("\ndone");
     for p in out {
         println!("port: {}", p);
     }
